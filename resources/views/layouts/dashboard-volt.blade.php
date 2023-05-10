@@ -48,6 +48,8 @@
     <link type="text/css" href="{{ asset('volt/html&css/vendor/sweetalert2/dist/sweetalert2.min.css') }}"
         rel="stylesheet">
 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
     <!-- Notyf -->
     <link type="text/css" href="{{ asset('volt/html&css/vendor/notyf/notyf.min.css') }}" rel="stylesheet">
 
@@ -55,7 +57,7 @@
     <link type="text/css" href="{{ asset('volt/html&css/css/volt.css') }}" rel="stylesheet">
 
     <!-- NOTICE: You can use the _analytics.html partial to include production code specific code & trackers -->
-@yield('css')
+    @yield('css')
 </head>
 
 <body>
@@ -128,55 +130,42 @@
                 </li>
 
                 <!--SIDEBAR MENU-->
-                <li class="nav-item {{ Request::is('home') ?'active' : '' }}">
+                <li class="nav-item {{ Request::is('home') ? 'active' : '' }}">
                     <a href="{{ route('home') }}" class="nav-link">
                         <span class="sidebar-icon">
-                            <svg class="icon icon-xs me-2" fill="currentColor" viewBox="0 0 20 20"
-                                xmlns="http://www.w3.org/2000/svg">
-                                <path d="M2 10a8 8 0 018-8v8h8a8 8 0 11-16 0z"></path>
-                                <path d="M12 2.252A8.014 8.014 0 0117.748 8H12V2.252z"></path>
-                            </svg>
+                            <i class="fas fa-home"></i>
                         </span>
                         <span class="sidebar-text">Dashboard</span>
                     </a>
                 </li>
-               
-                   
-                <li class="nav-item ">
-                    <a href="../../pages/settings.html" class="nav-link">
-                        <span class="sidebar-icon">
-                            <svg class="icon icon-xs me-2" fill="currentColor" viewBox="0 0 20 20"
-                                xmlns="http://www.w3.org/2000/svg">
-                                <path fill-rule="evenodd"
-                                    d="M11.49 3.17c-.38-1.56-2.6-1.56-2.98 0a1.532 1.532 0 01-2.286.948c-1.372-.836-2.942.734-2.106 2.106.54.886.061 2.042-.947 2.287-1.561.379-1.561 2.6 0 2.978a1.532 1.532 0 01.947 2.287c-.836 1.372.734 2.942 2.106 2.106a1.532 1.532 0 012.287.947c.379 1.561 2.6 1.561 2.978 0a1.533 1.533 0 012.287-.947c1.372.836 2.942-.734 2.106-2.106a1.533 1.533 0 01.947-2.287c1.561-.379 1.561-2.6 0-2.978a1.532 1.532 0 01-.947-2.287c.836-1.372-.734-2.942-2.106-2.106a1.532 1.532 0 01-2.287-.947zM10 13a3 3 0 100-6 3 3 0 000 6z"
-                                    clip-rule="evenodd"></path>
-                            </svg>
-                        </span>
-                        <span class="sidebar-text">Settings</span>
-                    </a>
-                </li>
 
                 <li class="nav-item 
-                {{ Request::is('simple-map') ?'active' : '' }}
+                {{ Request::is('simple-map') ? 'active' : '' }}
                 ">
                     <a href="{{ route('simple-map') }}" class="nav-link ">
-                        <span class="sidebar-icon">
-                            <svg class="icon icon-xs me-2" fill="currentColor" viewBox="0 0 20 20"
-                                xmlns="http://www.w3.org/2000/svg">
-                                <path fill-rule="evenodd"
-                                    d="M11.49 3.17c-.38-1.56-2.6-1.56-2.98 0a1.532 1.532 0 01-2.286.948c-1.372-.836-2.942.734-2.106 2.106.54.886.061 2.042-.947 2.287-1.561.379-1.561 2.6 0 2.978a1.532 1.532 0 01.947 2.287c-.836 1.372.734 2.942 2.106 2.106a1.532 1.532 0 012.287.947c.379 1.561 2.6 1.561 2.978 0a1.533 1.533 0 012.287-.947c1.372.836 2.942-.734 2.106-2.106a1.533 1.533 0 01.947-2.287c1.561-.379 1.561-2.6 0-2.978a1.532 1.532 0 01-.947-2.287c.836-1.372-.734-2.942-2.106-2.106a1.532 1.532 0 01-2.287-.947zM10 13a3 3 0 100-6 3 3 0 000 6z"
-                                    clip-rule="evenodd"></path>
-                            </svg>
+                        <span class="sidebar-icon ">
+                            <i class="fas fa-map"></i>
                         </span>
                         <span class="sidebar-text">Simple Map</span>
                     </a>
                 </li>
+
+                <li class="nav-item 
+                {{ Request::is('markers') ? 'active' : '' }}
+                ">
+                    <a href="{{ route('markers') }}" class="nav-link ">
+                        <span class="sidebar-icon">
+                            <i class="fas fa-map-marker"></i>
+                        </span>
+                        <span class="sidebar-text">Markers</span>
+                    </a>
+                </li>
                 <!--SIDEBAR MENU-->
-              
+
                 <li role="separator" class="dropdown-divider mt-4 mb-3 border-gray-700"></li>
             </ul>
             <!--HEADER NAV-->
-            
+
         </div>
     </nav>
 
@@ -394,9 +383,8 @@
                                     Support
                                 </a>
                                 <div role="separator" class="dropdown-divider my-1"></div>
-                                <a class="dropdown-item d-flex align-items-center" 
-                                href="{{ route('logout') }}" 
-                                onclick="event.preventDefault();document.getElementById('logout-form').submit();">
+                                <a class="dropdown-item d-flex align-items-center" href="{{ route('logout') }}"
+                                    onclick="event.preventDefault();document.getElementById('logout-form').submit();">
 
                                     <svg class="dropdown-icon text-danger me-2" fill="none" stroke="currentColor"
                                         viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -406,7 +394,8 @@
                                     </svg>
                                     Logout
                                 </a>
-                                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST"
+                                    class="d-none">
                                     @csrf
                                 </form>
                             </div>
@@ -484,12 +473,12 @@
 
         <!--DISPLAY CONTENT-->
         <div class="row">
-           
+
             @yield('content')
         </div>
         <!--DISPLAY CONTENT-->
 
-        
+
         <footer class="bg-white rounded shadow p-5 mb-4 mt-4">
             <div class="row">
                 <div class="col-12 col-md-4 col-xl-6 mb-4 mb-md-0">
@@ -532,7 +521,7 @@
     <script src="{{ asset('volt/html&css/vendor/smooth-scroll/dist/smooth-scroll.polyfills.min.js') }}"></script>
 
     <!-- Charts -->
-    
+
 
     <!-- Datepicker -->
     <script src="{{ asset('volt/html&css/vendor/vanillajs-datepicker/dist/js/datepicker.min.js') }}"></script>
@@ -554,7 +543,8 @@
 
     <!-- Github buttons -->
     <script async defer src="https://buttons.github.io/buttons.js"></script>
-
+   
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/js/fontawesome.min.js"></script>
     @stack('javascript')
     <!-- Volt JS -->
     {{-- <script src="{{ asset('volt/hmtl&css/assets/js/volt.js') }}"></script> --}}
