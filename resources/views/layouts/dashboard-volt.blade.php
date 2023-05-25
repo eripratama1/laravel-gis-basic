@@ -160,6 +160,17 @@
                         <span class="sidebar-text">Markers</span>
                     </a>
                 </li>
+
+                <li class="nav-item 
+                {{ Request::is('circle') ? 'active' : '' }}
+                ">
+                    <a href="{{ route('circle') }}" class="nav-link ">
+                        <span class="sidebar-icon">
+                            <i class="fas fa-map-marker"></i>
+                        </span>
+                        <span class="sidebar-text">Circle</span>
+                    </a>
+                </li>
                 <!--SIDEBAR MENU-->
 
                 <li role="separator" class="dropdown-divider mt-4 mb-3 border-gray-700"></li>
