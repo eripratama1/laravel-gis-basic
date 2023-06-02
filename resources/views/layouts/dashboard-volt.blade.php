@@ -171,6 +171,17 @@
                         <span class="sidebar-text">Circle</span>
                     </a>
                 </li>
+
+                <li class="nav-item 
+                {{ Request::is('polygon') ? 'active' : '' }}
+                ">
+                    <a href="{{ route('polygon') }}" class="nav-link ">
+                        <span class="sidebar-icon">
+                            <i class="fas fa-map-marker"></i>
+                        </span>
+                        <span class="sidebar-text">Polygon</span>
+                    </a>
+                </li>
                 <!--SIDEBAR MENU-->
 
                 <li role="separator" class="dropdown-divider mt-4 mb-3 border-gray-700"></li>
