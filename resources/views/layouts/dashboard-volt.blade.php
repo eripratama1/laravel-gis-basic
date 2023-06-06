@@ -166,7 +166,7 @@
                 ">
                     <a href="{{ route('circle') }}" class="nav-link ">
                         <span class="sidebar-icon">
-                            <i class="fas fa-map-marker"></i>
+                            <i class="fas fa-circle"></i>
                         </span>
                         <span class="sidebar-text">Circle</span>
                     </a>
@@ -177,9 +177,20 @@
                 ">
                     <a href="{{ route('polygon') }}" class="nav-link ">
                         <span class="sidebar-icon">
-                            <i class="fas fa-map-marker"></i>
+                            <i class="fas fa-draw-polygon"></i>
                         </span>
                         <span class="sidebar-text">Polygon</span>
+                    </a>
+                </li>
+
+                <li class="nav-item 
+                {{ Request::is('polyline') ? 'active' : '' }}
+                ">
+                    <a href="{{ route('polyline') }}" class="nav-link ">
+                        <span class="sidebar-icon">
+                            <i class="fas fa-draw-polygon"></i>
+                        </span>
+                        <span class="sidebar-text">Polyline</span>
                     </a>
                 </li>
                 <!--SIDEBAR MENU-->
