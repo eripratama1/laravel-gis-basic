@@ -193,6 +193,17 @@
                         <span class="sidebar-text">Polyline</span>
                     </a>
                 </li>
+
+                <li class="nav-item 
+                {{ Request::is('rectangle') ? 'active' : '' }}
+                ">
+                    <a href="{{ route('rectangle') }}" class="nav-link ">
+                        <span class="sidebar-icon">
+                            <i class="fas fa-draw-polygon"></i>
+                        </span>
+                        <span class="sidebar-text">Rectangle</span>
+                    </a>
+                </li>
                 <!--SIDEBAR MENU-->
 
                 <li role="separator" class="dropdown-divider mt-4 mb-3 border-gray-700"></li>
