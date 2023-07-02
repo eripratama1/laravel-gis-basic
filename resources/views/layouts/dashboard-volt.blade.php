@@ -226,6 +226,17 @@
                         <span class="sidebar-text">Layer Group</span>
                     </a>
                 </li>
+
+                <li class="nav-item 
+                {{ Request::is('geojson') ? 'active' : '' }}
+                ">
+                    <a href="{{ route('geojson') }}" class="nav-link ">
+                        <span class="sidebar-icon">
+                            <i class="fas fa-draw-polygon"></i>
+                        </span>
+                        <span class="sidebar-text">Geojson</span>
+                    </a>
+                </li>
                 <!--SIDEBAR MENU-->
 
                 <li role="separator" class="dropdown-divider mt-4 mb-3 border-gray-700"></li>
