@@ -18,3 +18,4 @@ Route::get('/rectangle', [App\Http\Controllers\HomeController::class, 'rectangle
 Route::get('/layer', [App\Http\Controllers\HomeController::class, 'layers'])->name('layer');
 Route::get('/layer-group', [App\Http\Controllers\HomeController::class, 'layer_group'])->name('layer-group');
 Route::get('/geojson', [App\Http\Controllers\HomeController::class, 'geojson'])->name('geojson');
+Route::get('/get-coordinate', [App\Http\Controllers\HomeController::class, 'getCoordinate'])->name('getCoordinate');
