@@ -119,6 +119,7 @@
 
             <!--SIDEBAR NAV-->
             <ul class="nav flex-column pt-3 pt-md-0">
+
                 <li class="nav-item">
                     <a href="../../index.html" class="nav-link d-flex align-items-center">
                         <span class="sidebar-icon">
@@ -130,124 +131,152 @@
                 </li>
 
                 <!--SIDEBAR MENU-->
-                <li class="nav-item {{ Request::is('home') ? 'active' : '' }}">
-                    <a href="{{ route('home') }}" class="nav-link">
-                        <span class="sidebar-icon">
-                            <i class="fas fa-home"></i>
+                <li class="nav-item">
+                    <span class="nav-link  collapsed  d-flex justify-content-between align-items-center"
+                        data-bs-toggle="collapse" data-bs-target="#submenu-app">
+                        <span>
+                            <span class="sidebar-icon">
+                                <svg class="icon icon-xs me-2" fill="currentColor" viewBox="0 0 20 20"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd"
+                                        d="M5 4a3 3 0 00-3 3v6a3 3 0 003 3h10a3 3 0 003-3V7a3 3 0 00-3-3H5zm-1 9v-1h5v2H5a1 1 0 01-1-1zm7 1h4a1 1 0 001-1v-1h-5v2zm0-4h5V8h-5v2zM9 8H4v2h5V8z"
+                                        clip-rule="evenodd"></path>
+                                </svg>
+                            </span>
+                            <span class="sidebar-text">GIS Basic</span>
                         </span>
-                        <span class="sidebar-text">Dashboard</span>
-                    </a>
-                </li>
+                        <span class="link-arrow">
+                            <svg class="icon icon-sm" fill="currentColor" viewBox="0 0 20 20"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd"
+                                    d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
+                                    clip-rule="evenodd"></path>
+                            </svg>
+                        </span>
+                    </span>
+                    <div class="multi-level collapse " role="list" id="submenu-app" aria-expanded="false">
+                        <ul class="flex-column nav">
+                            <li class="nav-item {{ Request::is('home') ? 'active' : '' }}">
+                                <a href="{{ route('home') }}" class="nav-link">
+                                    <span class="sidebar-icon">
+                                        <i class="fas fa-home"></i>
+                                    </span>
+                                    <span class="sidebar-text">Dashboard</span>
+                                </a>
+                            </li>
 
-                <li class="nav-item 
-                {{ Request::is('simple-map') ? 'active' : '' }}
-                ">
-                    <a href="{{ route('simple-map') }}" class="nav-link ">
-                        <span class="sidebar-icon ">
-                            <i class="fas fa-map"></i>
-                        </span>
-                        <span class="sidebar-text">Simple Map</span>
-                    </a>
-                </li>
+                            <li class="nav-item {{ Request::is('simple-map') ? 'active' : '' }}">
+                                <a href="{{ route('simple-map') }}" class="nav-link ">
+                                    <span class="sidebar-icon ">
+                                        <i class="fas fa-map"></i>
+                                    </span>
+                                    <span class="sidebar-text">Simple Map</span>
+                                </a>
+                            </li>
 
-                <li class="nav-item 
-                {{ Request::is('markers') ? 'active' : '' }}
-                ">
-                    <a href="{{ route('markers') }}" class="nav-link ">
-                        <span class="sidebar-icon">
-                            <i class="fas fa-map-marker"></i>
-                        </span>
-                        <span class="sidebar-text">Markers</span>
-                    </a>
-                </li>
+                            <li class="nav-item 
+                            {{ Request::is('markers') ? 'active' : '' }}
+                            ">
+                                <a href="{{ route('markers') }}" class="nav-link ">
+                                    <span class="sidebar-icon">
+                                        <i class="fas fa-map-marker"></i>
+                                    </span>
+                                    <span class="sidebar-text">Markers</span>
+                                </a>
+                            </li>
 
-                <li class="nav-item 
-                {{ Request::is('circle') ? 'active' : '' }}
-                ">
-                    <a href="{{ route('circle') }}" class="nav-link ">
-                        <span class="sidebar-icon">
-                            <i class="fas fa-circle"></i>
-                        </span>
-                        <span class="sidebar-text">Circle</span>
-                    </a>
-                </li>
-
-                <li class="nav-item 
-                {{ Request::is('polygon') ? 'active' : '' }}
-                ">
-                    <a href="{{ route('polygon') }}" class="nav-link ">
-                        <span class="sidebar-icon">
-                            <i class="fas fa-draw-polygon"></i>
-                        </span>
-                        <span class="sidebar-text">Polygon</span>
-                    </a>
-                </li>
-
-                <li class="nav-item 
-                {{ Request::is('polyline') ? 'active' : '' }}
-                ">
-                    <a href="{{ route('polyline') }}" class="nav-link ">
-                        <span class="sidebar-icon">
-                            <i class="fas fa-draw-polygon"></i>
-                        </span>
-                        <span class="sidebar-text">Polyline</span>
-                    </a>
-                </li>
-
-                <li class="nav-item 
-                {{ Request::is('rectangle') ? 'active' : '' }}
-                ">
-                    <a href="{{ route('rectangle') }}" class="nav-link ">
-                        <span class="sidebar-icon">
-                            <i class="fas fa-draw-polygon"></i>
-                        </span>
-                        <span class="sidebar-text">Rectangle</span>
-                    </a>
-                </li>
-
-                <li class="nav-item 
-                {{ Request::is('layer') ? 'active' : '' }}
-                ">
-                    <a href="{{ route('layer') }}" class="nav-link ">
-                        <span class="sidebar-icon">
-                            <i class="fas fa-draw-polygon"></i>
-                        </span>
-                        <span class="sidebar-text">Layer Control</span>
-                    </a>
-                </li>
-
-                <li class="nav-item 
-                {{ Request::is('layer-group') ? 'active' : '' }}
-                ">
-                    <a href="{{ route('layer-group') }}" class="nav-link ">
-                        <span class="sidebar-icon">
-                            <i class="fas fa-draw-polygon"></i>
-                        </span>
-                        <span class="sidebar-text">Layer Group</span>
-                    </a>
-                </li>
-
-                <li class="nav-item 
-                {{ Request::is('geojson') ? 'active' : '' }}
-                ">
-                    <a href="{{ route('geojson') }}" class="nav-link ">
-                        <span class="sidebar-icon">
-                            <i class="fas fa-draw-polygon"></i>
-                        </span>
-                        <span class="sidebar-text">Geojson</span>
-                    </a>
-                </li>
-
-                <li class="nav-item 
-                {{ Request::is('getCoordinate') ? 'active' : '' }}
-                ">
-                    <a href="{{ route('getCoordinate') }}" class="nav-link ">
-                        <span class="sidebar-icon">
-                            <i class="fas fa-draw-polygon"></i>
-                        </span>
-                        <span class="sidebar-text">Get Coordinate</span>
-                    </a>
-                </li>
+                            <li class="nav-item 
+                            {{ Request::is('circle') ? 'active' : '' }}
+                            ">
+                                <a href="{{ route('circle') }}" class="nav-link ">
+                                    <span class="sidebar-icon">
+                                        <i class="fas fa-circle"></i>
+                                    </span>
+                                    <span class="sidebar-text">Circle</span>
+                                </a>
+                            </li>
+            
+                            <li class="nav-item 
+                            {{ Request::is('polygon') ? 'active' : '' }}
+                            ">
+                                <a href="{{ route('polygon') }}" class="nav-link ">
+                                    <span class="sidebar-icon">
+                                        <i class="fas fa-draw-polygon"></i>
+                                    </span>
+                                    <span class="sidebar-text">Polygon</span>
+                                </a>
+                            </li>
+            
+                            <li class="nav-item 
+                            {{ Request::is('polyline') ? 'active' : '' }}
+                            ">
+                                <a href="{{ route('polyline') }}" class="nav-link ">
+                                    <span class="sidebar-icon">
+                                        <i class="fas fa-draw-polygon"></i>
+                                    </span>
+                                    <span class="sidebar-text">Polyline</span>
+                                </a>
+                            </li>
+            
+                            <li class="nav-item 
+                            {{ Request::is('rectangle') ? 'active' : '' }}
+                            ">
+                                <a href="{{ route('rectangle') }}" class="nav-link ">
+                                    <span class="sidebar-icon">
+                                        <i class="fas fa-draw-polygon"></i>
+                                    </span>
+                                    <span class="sidebar-text">Rectangle</span>
+                                </a>
+                            </li>
+            
+                            <li class="nav-item 
+                            {{ Request::is('layer') ? 'active' : '' }}
+                            ">
+                                <a href="{{ route('layer') }}" class="nav-link ">
+                                    <span class="sidebar-icon">
+                                        <i class="fas fa-draw-polygon"></i>
+                                    </span>
+                                    <span class="sidebar-text">Layer Control</span>
+                                </a>
+                            </li>
+            
+                            <li
+                                class="nav-item 
+                            {{ Request::is('layer-group') ? 'active' : '' }}
+                            ">
+                                <a href="{{ route('layer-group') }}" class="nav-link ">
+                                    <span class="sidebar-icon">
+                                        <i class="fas fa-draw-polygon"></i>
+                                    </span>
+                                    <span class="sidebar-text">Layer Group</span>
+                                </a>
+                            </li>
+            
+                            <li class="nav-item 
+                            {{ Request::is('geojson') ? 'active' : '' }}
+                            ">
+                                <a href="{{ route('geojson') }}" class="nav-link ">
+                                    <span class="sidebar-icon">
+                                        <i class="fas fa-draw-polygon"></i>
+                                    </span>
+                                    <span class="sidebar-text">Geojson</span>
+                                </a>
+                            </li>
+            
+                            <li
+                                class="nav-item 
+                            {{ Request::is('getCoordinate') ? 'active' : '' }}
+                            ">
+                                <a href="{{ route('getCoordinate') }}" class="nav-link ">
+                                    <span class="sidebar-icon">
+                                        <i class="fas fa-draw-polygon"></i>
+                                    </span>
+                                    <span class="sidebar-text">Get Coordinate</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>                               
                 <!--SIDEBAR MENU-->
 
                 <li role="separator" class="dropdown-divider mt-4 mb-3 border-gray-700"></li>
@@ -631,9 +660,10 @@
 
     <!-- Github buttons -->
     <script async defer src="https://buttons.github.io/buttons.js"></script>
-   
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/js/fontawesome.min.js"></script>
-    <script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js"
+        integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
     @stack('javascript')
     <!-- Volt JS -->
     {{-- <script src="{{ asset('volt/hmtl&css/assets/js/volt.js') }}"></script> --}}
