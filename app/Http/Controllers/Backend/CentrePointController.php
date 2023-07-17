@@ -57,24 +57,35 @@ class CentrePointController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(Centre_Point $centrePoint)
     {
-        //
+        $centrePoint = Centre_Point::findOrFail($centrePoint->id);
+        return view('backend.CentrePoint.edit',['centrePoint' => $centrePoint]);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, Centre_Point $centrePoint)
     {
-        //
+        $centrePoint = Centre_Point::findOrFail($centrePoint->id);
+        $centrePoint->coordinates = $request->input('coordinate');
+        $centrePoint->update();
+
+        if ($centrePoint) {
+            return to_route('centre-point.index')->with('success','Data berhasil diupdate');
+        } else {
+            return to_route('centre-point.index')->with('error','Data gagal diupdate');
+        }
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy($id)
     {
-        //
+        $centrePoint = Centre_Point::findOrFail($id);
+        $centrePoint->delete();
+        return redirect()->back();
     }
 }

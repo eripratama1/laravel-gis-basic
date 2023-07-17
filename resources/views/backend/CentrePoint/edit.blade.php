@@ -26,18 +26,31 @@
                 <div class="card">
                     <div class="card-header">Titik Koordinat</div>
                     <div class="card-body">
-                        <div class="form-group">
-                            <label for="">Koordinat</label>
-                            <input type="text" class="form-control" name="coordinate" id="coordinate">
-                        </div>
-                        <div class="form-group">
-                            <label for="">Latitude</label>
-                            <input type="text" class="form-control" name="latitude" id="latitude">
-                        </div>
-                        <div class="form-group">
-                            <label for="">Longitude</label>
-                            <input type="text" class="form-control" name="longitude" id="longitude">
-                        </div>
+                        <form action="{{ route('centre-point.update',$centrePoint->id) }}" method="post">
+                            @csrf
+                            @method('PUT')
+                            <div class="form-group">
+                                <label for="">Koordinat</label>
+                                <input type="text" value="{{ $centrePoint->coordinates }}"
+                                class="form-control @error('coordinate') is-invalid
+                                @enderror" name="coordinate" id="coordinate">
+                                @error('coordinate')
+                                    <div class="invalid-feedback">{{ $message }}</div>
+                                @enderror
+                            </div>
+                            <div class="form-group">
+                                <label for="">Latitude</label>
+                                <input type="text" class="form-control" name="latitude" id="latitude" value="{{ $centrePoint->coordinates }}">
+                            </div>
+                            <div class="form-group">
+                                <label for="">Longitude</label>
+                                <input type="text" class="form-control" name="longitude" id="longitude" value="{{ $centrePoint->coordinates }}">
+                            </div>
+
+                            <div class="form-group">
+                                <button type="submit" class="btn btn-primary btn-sm my-2">Update</button>
+                            </div>
+                        </form>
                     </div>
                 </div>
             </div>
@@ -72,7 +85,7 @@
         })
 
 
-        var marker = L.marker([-5.129541583080711, 113.62957770241515], {
+        var marker = L.marker([{{ $centrePoint->coordinates }}], {
             draggable: true
         }).addTo(map);
 
@@ -86,9 +99,9 @@
 
         // CARA PERTAMA
         function onMapClick(e) {
-            var coords  = document.querySelector("[name=coordinate]")
-            var latitude  = document.querySelector("[name=latitude]")
-            var longitude  = document.querySelector("[name=longitude]")
+            var coords = document.querySelector("[name=coordinate]")
+            var latitude = document.querySelector("[name=latitude]")
+            var longitude = document.querySelector("[name=longitude]")
             var lat = e.latlng.lat
             var lng = e.latlng.lng
 
@@ -100,16 +113,16 @@
 
             coords.value = lat + "," + lng
             latitude.value = lat,
-            longitude.value = lng
+                longitude.value = lng
         }
-        map.on('click',onMapClick)
+        map.on('click', onMapClick)
         // CARA PERTAMA
 
         // CARA KEDUA
-        marker.on('dragend',function(){
+        marker.on('dragend', function() {
             var coordinate = marker.getLatLng();
-            marker.setLatLng(coordinate,{
-                draggable:true
+            marker.setLatLng(coordinate, {
+                draggable: true
             })
             $('#coordinate').val(coordinate.lat + "," + coordinate.lng).keyup()
             $('#latitude').val(coordinate.lat).keyup()

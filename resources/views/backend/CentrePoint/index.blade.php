@@ -37,6 +37,11 @@
                             </thead>
                             <tbody></tbody>
                         </table>
+                        <form action="" method="POST" id="deleteForm">
+                            @csrf
+                            @method('DELETE')
+                            <input type="submit" value="Hapus" style="display:none">
+                        </form>
                     </div>
                 </div>
             </div>
@@ -46,6 +51,7 @@
 
 @push('javascript')
     <script src="https://cdn.datatables.net/1.13.5/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.5/js/dataTables.bootstrap5.min.js"></script>
     <script>
         $(function() {
             $('#dataCenterPoint').DataTable({

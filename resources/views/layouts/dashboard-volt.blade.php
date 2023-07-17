@@ -296,36 +296,17 @@
                       id="submenu-components" aria-expanded="false">
                       <ul class="flex-column nav">
                         <li class="nav-item">
-                          <a class="nav-link" target="_blank"
-                            href="https://themesberg.com/docs/volt-bootstrap-5-dashboard/components/accordions/">
-                            <span class="sidebar-text">All Components</span>
+                          <a class="nav-link"
+                            href="{{ route('centre-point.index') }}">
+                            <span class="sidebar-text">Center Point</span>
                           </a>
                         </li>
                         <li class="nav-item ">
-                          <a class="nav-link" href="../../pages/components/buttons.html">
-                            <span class="sidebar-text">Buttons</span>
+                          <a class="nav-link" href="#">
+                            <span class="sidebar-text">Spot</span>
                           </a>
                         </li>
-                        <li class="nav-item ">
-                          <a class="nav-link" href="../../pages/components/notifications.html">
-                            <span class="sidebar-text">Notifications</span>
-                          </a>
-                        </li>
-                        <li class="nav-item ">
-                          <a class="nav-link" href="../../pages/components/forms.html">
-                            <span class="sidebar-text">Forms</span>
-                          </a>
-                        </li>
-                        <li class="nav-item ">
-                          <a class="nav-link" href="../../pages/components/modals.html">
-                            <span class="sidebar-text">Modals</span>
-                          </a>
-                        </li>
-                        <li class="nav-item ">
-                          <a class="nav-link" href="../../pages/components/typography.html">
-                            <span class="sidebar-text">Typography</span>
-                          </a>
-                        </li>
+                        
                       </ul>
                     </div>
                   </li>
