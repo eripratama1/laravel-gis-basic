@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Centre_Point;
+use App\Models\Spot;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -74,6 +76,23 @@ class HomeController extends Controller
     public function getCoordinate()
     {
         return view('leaflet.get_coordinate');
+    }
+
+    public function spots()
+    {
+        $centerPoint = Centre_Point::get()->first();
+        $spot = Spot::get();
+
+        return view('frontend.home',[
+            'centerPoint' => $centerPoint,
+            'spot' => $spot
+        ]);
+    }
+
+    public function detailSpot($slug)
+    {
+        $spot = Spot::where('slug',$slug)->first();
+        return view('frontend.detail',['spot' => $spot]);
     }
     
 }
